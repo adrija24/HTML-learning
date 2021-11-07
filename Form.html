@@ -1,13 +1,20 @@
 <html>
 <head>
     <title>Sign up form</title>
-    <link rel="stysheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <style>
         .heading{
-            color:rgb(13, 136, 218)
+            color:rgb(13, 136, 218);
+            text-align:center;
         }
         .text{
-            color:white
+            color:white;
+            padding: 20px;
+            text-align: center;
+
+        }
+        #text{
+            color: rgb(168, 168, 233);
         }
         form{
             margin: 20px;
@@ -19,7 +26,7 @@
             color:rgb(191, 210, 223);
             display: block;
             height: 20px;
-            width: 45px;
+            width: 400px;
             font-family: sans-serif;
             text-align: left;
         }
@@ -38,6 +45,7 @@
        height: 45px;
        color: white;
        border-radius: 5px;
+       font-weight: bold;
    }
     </style>
 </head>
@@ -50,19 +58,19 @@
                 <font face="sans-serif" align="center">Sign Up</font>
                 </h3>
                 <h5 class="heading">It's free and only takes a minute.</h5>
-                <lable>Username</lable>
+                <label>Username</lable>
                 <input type="text" name="username" id="name" placeholder="Username"><br><br>
-                <lable>Email Address</lable>
+                <label>Email Address</lable>
                 <input type="email" name="email" id="email" placeholder="Email Address"><br><br>
-                <lable>Password</lable>
+                <label>Password</lable>
                 <input type="password" name="password" id="password" placeholder="Password"><br><br>
-                <lable>Confirm Password</lable>
+                <label>Confirm Password</lable>
                 <input type="password" name="confirm password" id="confirm password"
                     placeholder="Confirm Password"><br><br>
                 <input type="submit" id="signup" value="Sign Up"><br><br>
                 <h5 class="heading"heading">By clicking the Sign Up button, you agree to our<br><a href ="https://www.termsfeed.com/blog/sample-terms-and-conditions-template/">Terms & Conditions</a>, and<a href ="https://en.wikipedia.org/wiki/Privacy_policy"> Privacy Policy</a> </h5>
         </form>
-        <h5 class="text">Already have an account?<a href ="https://www.clientam.com/sso/Login" class="text">Login here </a></h5>
+        <h5 class="text">Already have an account?&nbsp;<a href ="https://www.clientam.com/sso/Login" id="text">Login here </a></h5>
     </center>
 
 </body>
