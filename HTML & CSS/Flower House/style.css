@@ -1,0 +1,150 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg{
+    display: flex;
+    justify-content: space-between;
+    z-index: -1;
+    position: absolute;
+}
+.bg-left{
+    background-color:#49f69f ;
+    width: 65vw;
+    height: 100vh;
+    position: relative;
+}
+.bg-right{
+    background-color: black;
+    width: 35vw;
+    height: 100vh;
+}
+#corner-left{
+    height: 80px;
+    margin:10px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+#corner-right{
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  margin-bottom: 10px;
+}
+.banner{
+    background-color: rgb(189, 35, 35);
+    position: absolute;
+   border-radius: 30px;
+   border: solid 10px white;
+    height: 80%;
+    width: 85%;
+    display: flex;
+}
+.banner-left{
+    width: 55%;
+    height: 100%;
+    border-top-left-radius:20px ;
+    border-bottom-left-radius:20px ;
+    background-color: #02361d;
+}
+.banner-right{
+   width: 45%;
+   height: 100%;
+   border-top-right-radius:20px ;
+   border-bottom-right-radius:20px ;
+   background-color: #00be65;
+}
+@font-face{
+    font-family:'Sacramento' ;
+    src: url(./assets/fonts/Sacramento-Regular.ttf);
+}
+@font-face {
+    font-family:'Merienda';
+    src: url(./assets/fonts/Merienda.ttf)
+}
+@font-face {
+    font-family:'HammersmithOne';
+    src: url(./assets/fonts/HammersmithOne.ttf)
+}
+#logo{
+    height: 50px;
+   padding-top: 10px;
+   padding-left:30px ;
+}
+.caption-left{
+    padding-left: 10px;
+    margin-top: 0;
+    font-family: 'Sacramento';
+    color:#49f69f;
+    font-size: 18px;
+}
+#caption-right{
+    color:white;
+}
+#topbar-item-container{
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      width: 70%;
+      font-family:'Merienda';
+
+}
+#topbar{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.caption-container{
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 40px;
+    word-spacing: 10px;
+    letter-spacing: 4px;
+    margin: 10px 0 0 0;
+    font-family: 'HammersmithOne';
+}
+#caption-heading{
+    /* font-size: 27px;
+    word-spacing: 10px;
+    letter-spacing: 4px; */
+    margin: 0;
+    font-family: 'HammersmithOne';
+}
+#sub-heading{
+    margin: 20px 0px;
+    font-size:12px ;
+    width: 80%;
+    text-align: justify;
+    word-spacing: .5px;
+    letter-spacing: .5px;
+    font-weight: 100;
+}
+#item-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.item{
+    padding-top: 20px;
+    height: 70px;
+    filter: invert(100%)
+}
+#flower-name{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family:'Merienda';
+    padding-left: 15px;
+}
