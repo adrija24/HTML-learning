@@ -23,13 +23,13 @@ body{
     height: 100vh;
 }
 #corner-left{
-    height: 80px;
+    height: 85px;
     margin:10px;
     -webkit-transform:rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+    transform: rotate(75deg);
 }
 #corner-right{
     height: 100px;
@@ -147,4 +147,88 @@ body{
     align-items: center;
     font-family:'Merienda';
     padding-left: 15px;
+}
+.banner-right{
+    display: flex;
+}
+.banner-right-container{
+    width: 90%;
+    height: 100%;
+}
+.banner-right-topbar{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-top: 30px;
+}
+.button{
+    background-color: #02361d;
+    border-radius:50px;
+    color: white;
+    height: 40px;
+   width: 120px;
+   margin:0 0 0 15px;
+}
+.social-networks{
+    width: 10%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.social-hr{
+    width: 0.3px;
+     height: 55%;
+     background: rgb(0, 0, 0);
+}
+.social-text{
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+float: left;
+width: 150px;
+color:black;
+font-weight: bold;
+}
+.social-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+}
+.social-icon-container{
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+}
+.social-icon{
+    margin: 10px ;
+}
+.banner-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+#banner-image{
+    height: 300px;
+}
+.arrow-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(56, 55, 55);
+}
+.arrow{
+    margin: 0 60px ;
+    font-size: 20px;
+}
+#slide-number{
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
 }
