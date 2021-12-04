@@ -1,0 +1,103 @@
+@font-face {
+    font-family:'TitilliumWeb-Black';
+    src: url(./assets/fonts/TitilliumWeb-Black.ttf);
+}
+    @font-face {
+    font-family: 'TitilliumWeb-Bold';
+    src: url(./assets/fonts/TitilliumWeb-Bold.ttf);
+}
+    @font-face {
+    font-family: 'TitilliumWeb-Regular';
+    src: url(./assets/fonts/TitilliumWeb-Regular.ttf);
+}
+body {
+    overflow: hidden;
+}
+#body{
+    background-color: black;
+}
+.navbar{
+    height: 12vh;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+.logo-container {
+    width: 5vw;
+}
+.logo{
+    height: 70px;
+    position: relative;
+    z-index: 2;
+}
+.nav-item{
+    font-size: 20px;
+    padding: 20px;
+    font-family: TitilliumWeb-Bold;
+}
+.nav-link{
+    color: white !important;
+
+}
+#navbarNav{
+    width: 95vw;
+    padding-right: 5vw;
+    justify-content: center;
+}
+#tagline-container{
+    height: 88%;
+    width: 95vw;
+    line-height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.tagline{
+    padding-left: 10vw;
+    color: rgb(192, 189, 189);
+    font-size: 70px;
+    font-family:'TitilliumWeb-Black' ;
+}
+#sub-tagline{
+    color: white;
+    font-size: 80px;
+}
+#end-line{
+    font-size: 150px;
+    color: #7ED957;
+}
+.contact-btn{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 30px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    background-color: #7ED957 !important;
+    font-family: var(--mdb-font-roboto) !important;
+    padding: 15px !important;
+    color: white !important;
+    border: none !important;
+}
+#background-text{
+    position: absolute;
+    margin-top: -100px;
+    z-index: -1;
+    font-size: 19vw;
+    padding-top: 5vh;
+    margin-left: -5vw;
+    text-shadow:
+		-1px -1px 0 rgb(105, 103, 103),
+		1px -1px 0 rgb(105, 103, 103),
+		-1px 1px 0 rgb(105, 103, 103),
+		1px 1px 0 rgb(105, 103, 103);
+        font-family:'TitilliumWeb-Black';
+        letter-spacing: 50px;
+        color: rgba(0,0,0,1);
+        -webkit-transform:rotate(-20deg);
+        -moz-transform: rotate(-20deg);
+        -ms-transform: rotate(-20deg);
+        -o-transform: rotate(-20deg);
+        transform: rotate(-20deg);
+}

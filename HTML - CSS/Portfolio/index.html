@@ -13,7 +13,9 @@
 <body id="body">
   <nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container-fluid">
-      <img class="logo" src="assets/image/logo.png">
+      <div class="logo-container">
+        <img class="logo px-4" src="assets/image/logo.png">
+      </div>
       <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -42,15 +44,16 @@
       </div>
     </div>
   </nav>
-  <div id="home">
+  <div id="home" class="container-fluid">
     <div id="tagline-container">
       <p class="tagline">I'm a<br><span id=sub-tagline>WEB DESIGNER<span id="end-line">.</span></span><br>
-        <a href="#" id="home-contact-paragraph">Contact me</a>
+        <a href="#"> <button type="button" class="btn btn-primary contact-btn">Contact Me</button>
+        </a>
       </p>
-      <div id="background-text">DESIGNER</div>
+        <div id="background-text">DESIGNER</div>
     </div>
   </div>
-
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.js"></script>
 </body>
 
 </html>
