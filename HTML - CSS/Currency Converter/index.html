@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar bg-white dark:bg-gray-800 py-4">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="flex items-center justify-center h-16">
+                    <div class=" flex items-center">
+                        <a class="flex-shrink-0" href="/">
+                            <img class="h-8" src="assets/image/logo-name.png" alt="Currency Power" />
+                        </a>
+                        <div class="hidden md:block px-52">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                                    href="#Home">
+                                    Home
+                                </a>
+                                <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                                    href="#Content">
+                                    Content
+                                </a>
+                                <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                                    href="#Data">
+                                    Data
+                                </a>
+                                <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                                    href="#Pricing">
+                                    Pricing
+                                </a>
+                                <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                                    href="#Documentation">
+                                    Documentation
+                                </a>
+                                <a class="text-gray-300  hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-md font-medium"
+                                    href="#Contact">
+                                    Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="md:block -mr-2 flex">
+                            <form
+                                class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
+                                <div class=" relative ">
+                                </div>
+                                <button
+                                    class="flex-shrink-0 px-4 py-2 text-base font-semibold text-green-600 bg-white outline md:outline-2 outline-green-600 rounded-lg shadow-md hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-600 transition duration-300"
+                                    type="submit">
+                                    Sign Up
+                                </button>
+                            </form>
+                        </div>
+                        <div class="ml-4 flex items-center md:ml-6">
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex md:hidden">
+                        <button
+                            class="text-gray-800 dark:text-white hover:text-gray-300 inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
+                            <svg width="20" height="20" fill="currentColor" class="h-8 w-8" viewBox="0 0 1792 1792"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        href="/#">
+                        Home
+                    </a>
+                    <a class="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#">
+                        Gallery
+                    </a>
+                    <a class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        href="/#">
+                        Content
+                    </a>
+                    <a class="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        href="/#">
+                        Contact
+                    </a>
+                </div>
+                <div class="p-2 flex">
+                    <form
+                        class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
+                        <div class=" relative ">
+                            <input type="text" id="&quot;form-subscribe-Search"
+                                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                placeholder="components" />
+                        </div>
+                        <button
+                            class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                            type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="Home" class="introduction mx-auto px-28 pt-20">
+            <div class="image1_container w-1/2">
+                <img class="image1" src="assets/image/illustration1.png" alt="">
+            </div>
+            <div class="get_started_container flex items-center w-1/2 px-12">
+                <div class="flex-col">
+                    <p class="get_started_heading">Get Started With</p>
+                    <p class="currency_power_heading text-green-600">CurrencyPi API</p>
+                    <p class="list text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+                        voluptate molestiae dolores
+                        explicabo dignissimos quis saepe voluptas alias, placeat eveniet maiores beatae ea. Provident
+                        praesentium voluptates possimus, laboriosam quis at. Laborum tempore ex vero sit laboriosam
+                        necessitatibus reiciendis iure quisquam!</p><br><br>
+                    <div class="button-container">
+                        <div class="button1 flex justify-center items-center">
+                            Start Free
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Content" class="search_div flex mx-auto px-28 pt-16">
+            <div class="search_container flex items-center w-1/2 px-12">
+                <div class="flex-col">
+                    <p class="search_heading text-green-600">CurrencyPi Search</p>
+                    <p class="list text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam
+                        quibusdam dolorum ratione et
+                        accusamus error quod possimus incidunt, similique officia corporis eum modi earum. Rem molestiae
+                        iusto,
+                        optio dolorem culpa illo! Dignissimos excepturi hic vitae quibusdam aliquam nemo eligendi
+                        doloremque
+                        animi
+                        culpa aperiam quo, provident placeat soluta minus illum!</p><br><br>
+                    <div class="button-container">
+                        <div class="button2 flex justify-center items-center">
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image2_container w-1/2">
+                <img class="image2" src="assets/image/illustration2.png" alt="">
+            </div>
+        </div>
+
+        <div id="Data" class="introduction mx-auto px-28 pt-20">
+            <div class="image1_container w-1/2">
+                <img class="image3 hue-rotate-120 pl-6" src="assets/image/illustration3.png" alt="">
+            </div>
+            <div class="get_started_container flex items-center w-1/2 px-12">
+                <div class="flex-col">
+                    <p class="get_started_heading">Get CurrencyPi <span class="text-green-600">XML/JSON</span> data</p>
+                    <p class="list text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+                        voluptate molestiae dolores
+                        explicabo dignissimos quis saepe voluptas alias, placeat eveniet maiores beatae ea. Provident
+                        praesentium voluptates possimus, laboriosam quis at. Laborum tempore ex vero sit laboriosam
+                        necessitatibus reiciendis iure quisquam!</p><br><br>
+
+                </div>
+            </div>
+        </div>
+        <div id="Pricing">
+            <div class="flex justify-center pt-24">
+                <div
+                    class="request_500 bg-green-600 flex items-center md:shadow-lg md:shadow-green-300 h-48 w-2/5 justify-center">
+                    <div class="flex-col">
+                        <P class="free_request text-center">Get 500 Free Request</P>
+                        <p class="credit_card text-center">No credit card required</p>
+                        <div class="button-container pt-3 flex justify-center">
+                            <button
+                                class="button3 flex justify-center items-center text-green-600 drop-shadow-2xl rounded w-32 h-9">
+                                <b>Get Started</b>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plan flex justify-center text-green-600 px-8 pt-14">
+                <b>Choose Your Plan</b>
+            </div>
+
+            <div class="flex justify-around px-12">
+                <div class="cards py-3">
+                    <section
+                        class="w-64 mx-auto bg-Neutral-50 rounded-2xl px-8 py-6 mt-10 md:shadow-md md:shadow-green-300">
+                        <div class="flex justify-center">
+                            <div class="flex-col">
+                                <p class="plan_name text-center text-green-600"><b>BASIC PLAN</b></p>
+                                <p class="price text-center">$29.99</p>
+                            </div>
+                        </div>
+                        <div class="flex-col">
+                            <hr class="hr bg-gray-300">
+                            <p class="list lorem_ipsum text-center text-sm">Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
+                                Ratione,
+                                corporis
+                                distinctio. Cupiditate ex sed sunt repudiandae corporis molestias maiores dignissimos?
+                            </p>
+                            <div class="button-container pt-3 flex justify-center">
+                                <button
+                                    class="button5 flex justify-center items-center text-green-600 drop-shadow-2xl rounded w-32 h-9">
+                                    <b>Order Now</b>
+                                </button>
+                            </div>
+                    </section>
+                </div>
+
+                <div class="cards py-3">
+                    <div class="popular text-white h-10 flex justify-center">
+                        <div class="flex items-center">
+                            MOST POPULAR
+                        </div>
+                    </div>
+                    <section
+                        class="popular-card w-64 mx-auto bg-Neutral-50 rounded-2xl px-8 py-6 md:shadow-2xl md:shadow-green-300">
+                        <div class="flex justify-center">
+                            <div class="flex-col">
+                                <p class="plan_name text-center text-green-600"><b>STANDARD PLAN</b></p>
+                                <p class="price text-center">$39.99</p>
+                            </div>
+                        </div>
+                        <div class="flex-col">
+                            <hr class="hr bg-gray-300">
+                            <p class="list lorem_ipsum text-center text-sm">Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
+                                Ratione,
+                                corporis
+                                distinctio. Cupiditate ex sed sunt repudiandae corporis molestias maiores dignissimos?
+                            </p>
+                            <div class="button-container pt-3 flex justify-center">
+                                <button
+                                    class="button4 flex justify-center items-center text-white drop-shadow-xl rounded w-32 h-9">
+                                    <b>Order Now</b>
+                                </button>
+                            </div>
+                    </section>
+                </div>
+
+
+                <div class="cards py-3">
+                    <section
+                        class="w-64 mx-auto bg-Neutral-50 rounded-2xl px-8 py-6 mt-10 md:shadow-md md:shadow-green-300">
+                        <div class="flex justify-center">
+                            <div class="flex-col">
+                                <p class="plan_name text-center text-green-600"><b>GOLDEN PLAN</b></p>
+                                <p class="price text-center">$45.99</p>
+                            </div>
+                        </div>
+                        <div class="flex-col">
+                            <hr class="hr bg-gray-300">
+                            <p class="list lorem_ipsum text-center text-sm">Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
+                                Ratione,
+                                corporis
+                                distinctio. Cupiditate ex sed sunt repudiandae corporis molestias maiores dignissimos?
+                            </p>
+                            <div class="button-container pt-3 flex justify-center">
+                                <button
+                                    class="button5 flex justify-center items-center text-green-600 drop-shadow-2xl rounded w-32 h-9">
+                                    <b>Order Now</b>
+                                </button>
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div id="Documentation">
+            <div class="plan flex justify-center text-green-600 pb-10 pt-24">
+                <b>Simplify your work</b>
+            </div>
+            <div class="icons flex justify-center py-10 h-40">
+                <div
+                    class="flex bg-white rounded-full justify-center h-24 w-24 items-center mr-6 md:shadow-xl md:shadow-green-300">
+                    <i class="fal fa-code text-green-600 tracking-wider text-4xl"></i>
+                </div>
+                <div
+                    class="flex bg-white rounded-full justify-center h-24 w-24 items-center mr-6 md:shadow-xl md:shadow-green-300">
+                    <i class="fab fa-wordpress-simple text-green-600 tracking-wider text-4xl"></i>
+                </div>
+                <div
+                    class="flex bg-white rounded-full justify-center h-24 w-24 items-center mr-6 md:shadow-xl md:shadow-green-300">
+                    <i class="fab fa-python text-green-600 tracking-wider text-4xl"></i>
+                </div>
+            </div>
+            <div class="flex justify-center py-10">
+                <div class="list w-2/5 text-center lorem text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Odio,
+                    blanditiis. Quos unde similique illum at
+                    commodi porro, soluta aliquid a.
+                    </div">
+                    <div class="button-container flex justify-center pt-8">
+                        <div class="button6 flex justify-center items-center">
+                            Documentation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer section -->
+        <div id="Contact" class="bg-cover bg-center">
+            <div style="background-color: rgba(140, 248, 172, 0.787);">
+                <div class="container mx-auto px-6 lg:px-20 py-12">
+                    <div class="lg:flex">
+                        <div class="w-full lg:w-2/3">
+                            <div class="lg:flex">
+                                <div class="w-full mb-12 lg:mb-0 lg:w-1/2">
+                                    <h2 style="font-family:'OrelegaOne';" class="font-bold text-xl text-black mb-4">
+                                        CurrencyPi API</h2>
+                                    <p class="list text-black text-sm">
+                                        Web2tailwind.com is a site for developer, student and learner,
+                                        where they can grab
+                                        hundreds of various html component code and try online as fast as posible
+                                        without...
+                                    </p>
+                                    <div class="flex mt-6">
+                                        <i style="background-color: #3B5998;"
+                                            class="link flex items-center justify-center h-12 w-12 mr-1 rounded-full fab fill-current text-white text-xl fa-facebook-f"></i>
+                                        <i style="background-color:#dd4b39"
+                                            class="link flex items-center justify-center h-12 w-12 mx-1 rounded-full fas fill-current text-white text-xl fa-envelope"></i>
+                                        <i style="background-color:#125688;"
+                                            class="link flex items-center justify-center h-12 w-12 mx-1 rounded-full fab fill-current text-white text-xl fa-instagram"></i>
+                                        <i style="background-color:#55ACEE;"
+                                            class="link flex items-center justify-center h-12 w-12 mx-1 rounded-full fab fill-current text-white text-xl fa-twitter"></i>
+                                    </div>
+                                </div>
+                                <div class="w-full lg:w-1/2 lg:flex lg:px-6 ">
+                                    <div class="w-full mb-6 lg:mb-0 lg:w-1/2">
+                                        <h2 style="font-family: 'OrelegaOne';"
+                                            class="font-bold text-black mb-4 text-xl">
+                                            Useful Links</h2>
+                                        <ul class="list text-black text-xs">
+                                            <li class="pt-1 pb-2">Home</li>
+                                            <li class="pt-1 pb-2">About us</li>
+                                            <li class="pt-1 pb-2">Services</li>
+                                            <li class="pt-1 pb-2">Terms of Services</li>
+                                            <li class="pt-1 pb-2">Privacy Policy</li>
+                                        </ul>
+                                    </div>
+                                    <div class="w-full mb-6 lg:mb-0 lg:w-1/2">
+                                        <h2 style="font-family: 'OrelegaOne';"
+                                            class="font-bold text-black mb-4 text-xl">
+                                            Our sevices</h2>
+                                        <ul class="list text-black text-xs">
+                                            <li class="pt-1 pb-2">Web Design</li>
+                                            <li class="pt-1 pb-2">Web Development</li>
+                                            <li class="pt-1 pb-2">Product Management</li>
+                                            <li class="pt-1 pb-2">Marketing</li>
+                                            <li class="pt-1 pb-2">Graphics Design</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/3">
+                            <h2 style="font-family: 'OrelegaOne';" class=" font-bold text-black mb-4 text-xl">
+                                Our Newsletter
+                            </h2>
+                            <div class="list text-black mb-8 text-sm">
+                                Subscribe our weely Newsletter to get regular updates about our blogs.
+                            </div>
+                            <div class="flex">
+                                <input type="text" class="rounded-l px-2 focus:outline-none">
+                                <button
+                                    class="button7 text-white text-xl rounded-r hover:bg-blue-500 px-4 py-2 focus:outline-none"
+                                    style="background-color: #24D470;font-family: 'OrelegaOne'">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer bottom -->
+            <div style="font-family: 'OrelegaOne'; background-color: rgba(10, 10, 10, 0.7);">
+                <div class="container mx-auto px-6 lg:px-20 py-6 text-xl">
+                    <div class="flex justify-center text-gray-300 mb-1">
+                        © 2022  <span class="font-bold">CurrencyPi.</span>  All right reserved.
+                    </div>
+                    <div class="flex font-light justify-center text-gray-400 text-sm">
+                        <p>Designed by <span class="font-bold">CurrencyPi.com</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
