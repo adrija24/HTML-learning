@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: OrelegaOne;
   src: url(assets/fonts/OrelegaOne.ttf);
@@ -5,6 +9,11 @@
 
 .navbar {
   position: fixed;
+  z-index: 999;
+}
+
+.active, .btn:hover {
+  color: #16a34a !important;
 }
 
 .get_started_heading {
