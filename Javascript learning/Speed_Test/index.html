@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Test</title>
+    <!-- CSS_style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- javascript -->
+</head>
+
+<body onload="paragraph()">
+    <div class="divContainer w-screen h-screen flex flex-col justify-center items-center">
+        <div class="content gap-6 text-white text-justify text-2xl tracking-widest w-3/5 p-2" id="text">
+            <p id="textDisplay"></p>
+        </div>
+        <div class="typingAndResult flex flex-col w-3/5 p-2">
+            <div class="py-2 w-full">
+                <textarea type="text" class="p-2 w-full h-48" id="textInput" disabled autofocus></textarea>
+            </div>
+            <div class="result flex flex-col items-center">
+                <div class="speed text-white">
+                    <p class="text-xl"><span id="score" class="text-white"></span></p>
+                </div>
+                <div id="showTimeContainer" class="hidden">
+                    <p id="showTime"
+                        class="text-lg text-justify flex items-center justify-center text-red-600 border-solid bg-white rounded-full h-12 w-12 border-white">
+                    </p>
+                    <p id="timeDetails" class="text-xl text-white"></p>
+                </div>
+                <div class="accuracyTest">
+                    <p id="accuracy" class="text-xl text-white"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content w-2/5 py-2 flex justify-center">
+            <button id="myButton"
+                class="bg-blue-400 text-black font-semibold hover:text-white hover:py-1.5 hover:px-3.5 py-1 px-3 border border-black rounded focus-none">
+                Start
+            </button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
