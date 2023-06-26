@@ -7,7 +7,7 @@ const textDisplay = document.getElementById("textDisplay");
 const accuracyText = document.querySelector("#accuracy");
 const showTimeContainer = document.querySelector("#showTimeContainer");
 
-let startTime, endTime, totalTimeTaken, button, textTypingLength;
+let startTime, endTime, totalTimeTaken, button, textDisplayLength;
 let accuracyCount = 0;
 
 //Speed Test & Show Timer function
@@ -43,7 +43,6 @@ const calculateTypingSpeed = (time_taken) => {
     typing_speed = Math.round(typing_speed);
     score.innerHTML = `Speed(WPM): ${typing_speed}`;
     let lengthCount = textDisplay.innerText.length;
-    // console.log(lengthCount)
     let accuracyResult = Math.round((accuracyCount / lengthCount) * 100);
     accuracyText.innerHTML = `Accuracy: ${accuracyResult} %`;
   } else {
@@ -62,7 +61,6 @@ const startTyping = () => {
   typing_ground.addEventListener("input", () => {
     const arrayQuote = textDisplay.querySelectorAll("span");
     const arrayValue = typing_ground.value.split("");
-    textTypingLength = arrayValue
     accuracyCount = 0;
     arrayQuote.forEach((characterSpan, index) => {
       const character = arrayValue[index];
@@ -78,13 +76,17 @@ const startTyping = () => {
         characterSpan.classList.add("incorrect");
       }
     });
+    //checking the length of the typing_ground & textDisplay to disable the typing ground
+    if (arrayValue.length === textDisplay.innerText.length) {
+      typing_ground.setAttribute("disabled", "true");
+      btn.setAttribute("disabled", "true");
+      btn.classList.remove("hover:text-white", "hover:py-1.5", "hover:px-3.5");
+      btn.style.cssText = `
+      background: #BDDAFF; 
+    `;
+      endTypingTest();
+    }
   });
-  console.log(textTypingLength)
-  //checking the length of the typing_ground & textDisplay to disable the typing ground
-  // if (textDisplay.value.length === typing_ground.value.length) {
-  //   typing_ground.setAttribute("disabled", "true");
-  //   endTypingTest();
-  // }
 };
 
 //endTypingTeset
@@ -134,10 +136,12 @@ function paragraph() {
       response.split("").forEach((character) => {
         const characterSpan = document.createElement("span");
         characterSpan.innerText = character;
+        characterSpan.style.cssText = `
+        margin: 1px;
+        `;
         textDisplay.appendChild(characterSpan);
       });
     }
   };
-
   xhr.send();
 }
