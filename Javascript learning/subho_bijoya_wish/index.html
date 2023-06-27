@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subho_bijoya</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- tailwind -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="index.js"></script>
+</head>
+
+<body class="h-screen bg-gradient-to-r from-green-400 to-blue-500">
+    <div class="grid h-screen place-items-center">
+        <div class=" grid border-4 border-green-600 h-64 p-8 place-items-center rounded-xl bg-white">
+            <div class="headline font-bold">
+                Enter your name and age:
+            </div>
+            <div class="inputData mb-2">
+                <div class="label flex flex-col justify-start">
+                    <label for="fname">First Name :</label>
+                    <input type="text" id="fname" name="fname" class="rounded border-gray-400 border-2 border-dotted">
+                </div>
+                <div class="input flex flex-col justify-start">
+                    <label for="age">Your Age :</label>
+                    <input type="number" id="age" name="age" class="rounded border-gray-400 border-2 border-dotted">
+                </div>
+            </div>
+            <div>
+                <button id="myButton"
+                    class="bg-green-500 text-black font-semibold hover:text-black py-1 px-3 border border-black rounded focus-none"
+                    onclick="myfunc()">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
