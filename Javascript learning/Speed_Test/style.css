@@ -18,13 +18,11 @@ body {
 .correct{
   background-color: rgb(90, 255, 90);
   color: black;
-  margin: 1px;
   border-radius: 2px;
 }
 .incorrect{
   background-color: rgb(255, 88, 88);
   color: black;
-  margin: 1px;
   border-radius: 2px;
 }
 

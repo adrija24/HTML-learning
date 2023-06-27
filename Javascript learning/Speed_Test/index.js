@@ -56,6 +56,7 @@ const startTyping = () => {
   startTime = date.getTime();
   btn.innerHTML = "Done";
   showTimer();
+  console.log(startTime)
 
   //checking correct & incorrect with the input characters
   typing_ground.addEventListener("input", () => {
@@ -118,9 +119,21 @@ btn.addEventListener("click", () => {
   }
 });
 
+// enabling start typing using 'Spacebar'
+var hasExecuted = false;
+document.body.onkeyup = function (e) {
+  if ((e.key === " " || e.code === "Space" || e.keyCode === 32) && !hasExecuted) {
+    typing_ground.removeAttribute("disabled");
+    typing_ground.focus();
+    startTyping();
+    hasExecuted = true;
+  }
+};
+
+
 //Paragraph fetch
 function paragraph() {
-  const numberOfSentences = 1; // Specify the number of sentences you want
+  const numberOfSentences = 3; // Specify the number of sentences you want
 
   const xhr = new XMLHttpRequest();
   xhr.open(
