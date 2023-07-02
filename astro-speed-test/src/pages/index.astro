@@ -1,0 +1,27 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Card from '@components/Card.astro';
+import levelData from '@assets/js/levelData';
+---
+<Layout title="about page" description="about description">
+    <h1>About Page!!!</h1>
+    <ul role="list" class="link-card-grid">
+    {
+        levelData.map((item) =>{
+            return(
+                <>
+                    <Card level={item.level} />
+                </>
+            )
+        })
+    }
+    </ul>
+</Layout>
+<style>
+    	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
