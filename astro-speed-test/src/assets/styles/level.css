@@ -1,15 +1,11 @@
 body {
-    background-image: url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg");
+    background-image: url("https://i.pinimg.com/736x/8f/68/23/8f682350d2c8a76a92fa71c175bf4be2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
   .divContainer{
     background-color: rgba(139, 139, 139, 0.35);
   }
-  
-  /* #textDisplay{
-      word-spacing: 3px;
-  } */
   
   #textInput{
     resize: none;

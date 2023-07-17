@@ -3,28 +3,39 @@ import Layout from "@layouts/Layout.astro";
 import "@assets/styles/level.css";
 import levelData from "@assets/js/levelData";
 export function getStaticPaths() {
-    return levelData.map(({ level, speed }) => {
+    return levelData.map(({ level, speed, finalAccuracy }) => {
         return {
             params: { level },
-            props: { speed },
+            props: { speed, finalAccuracy },
         };
     });
 }
 const { level } = Astro.params;
-const { speed } = Astro.props;
+const { speed, finalAccuracy, length=levelData.length } = Astro.props;
 ---
 
 <Layout title="Homepage" description="Homepage Description">
     <div
         id="speedValue"
         class="divContainer w-screen h-screen flex flex-col justify-center items-center"
-        data-speed={speed} data-level = {level}
+        data-speed={speed}
+        data-level={level}
+        data-accuracy={finalAccuracy}
+        data-length={length}
     >
         <h4
             class="text-white text-3xl font-bold leading-loose underline decoration-double underline-offset-8"
         >
             Level {level}
         </h4>
+        <h2
+            class="text-white text-xl leading-loose underline decoration-solid underline-offset-8"
+        >
+            The speed and the accuracy should be a minimum of <span
+                class="font-bold">{speed} WPM</span
+            >
+            and <span class="font-bold">{finalAccuracy}%</span> respectively.
+        </h2>
         <div
             class="content gap-6 text-white text-left text-2xl tracking-widest w-3/5 p-2"
             id="text"
@@ -47,28 +58,29 @@ const { speed } = Astro.props;
                     </p>
                 </div>
                 <div id="showTimeContainer" class="hidden">
-                    <p
+                    <p6
                         id="showTime"
                         class="text-lg text-justify flex items-center justify-center text-red-600 border-solid bg-white rounded-full h-12 w-12 border-white"
                     >
-                    </p>
+                    </p6>
                     <p id="timeDetails" class="text-xl text-white"></p>
                 </div>
                 <div class="accuracyTest">
-                    <p id="accuracy" class="text-xl text-white"></p>
+                    <p id="accuracyDiv" class="text-xl text-white"></p>
+                </div>
+                <div class="resultSentence">
+                    <p id="sentence" class="text-xl text-white"></p>
                 </div>
             </div>
         </div>
-        <div class="content w-2/5 py-2 flex justify-center">
-            <button
+        <button
             id="myButton"
             class="bg-blue-400 text-black font-semibold hover:text-white hover:py-1.5 hover:px-3.5 py-1 px-3 border border-black rounded focus-none"
-            >
+        >
             Start
         </button>
-        </div>
     </div>
-    
+
     <script>
         const typing_ground = document.querySelector("#textInput");
         const btn = document.querySelector("#myButton");
@@ -76,15 +88,37 @@ const { speed } = Astro.props;
         const showTime = document.querySelector("#showTime");
         const timeDetails = document.querySelector("#timeDetails");
         const textDisplay = document.getElementById("textDisplay");
-        const accuracyText = document.querySelector("#accuracy");
+        const accuracyText = document.querySelector("#accuracyDiv");
         const showTimeContainer = document.querySelector("#showTimeContainer");
-        
+        const Showsentence = document.querySelector("#sentence");
+
         let startTime, endTime, totalTimeTaken, button, textDisplayLength;
         let accuracyCount = 0;
         let typing_speed = 0;
         let totalAccuracy = 0;
         let totalAccuracyCount = 0;
 
+        const speed = document.querySelector("#speedValue").dataset.speed;
+        const accuracy = document.querySelector("#speedValue").dataset.accuracy;
+        const level = document.querySelector("#speedValue").dataset.level;
+        const length = document.querySelector("#speedValue").dataset.length;
+
+        const resultValueArr = [];
+        const data = {
+            speed: 0,
+            accuracy: 0,
+        };
+        var valueArr;
+
+        if ("resultArr" in localStorage) {
+            valueArr = JSON.parse(localStorage.getItem("resultArr"));
+        } else {
+            for (let index = 0; index < length; index++) {
+                resultValueArr.push(data);
+            }
+            localStorage.setItem("resultArr", JSON.stringify(resultValueArr));
+            valueArr = JSON.parse(localStorage.getItem("resultArr"));
+        }
         //Speed Test & Show Timer function
         let intervalID,
             elpasedTime = 0;
@@ -111,27 +145,35 @@ const { speed } = Astro.props;
         //calculateTypingSpeed function
         const calculateTypingSpeed = (time_taken) => {
             let totalWords = typing_ground.value.trim();
-            let actualWords = totalWords === "" ? 0 : totalWords.split(" ").length;
+            let actualWords =
+                totalWords === "" ? 0 : totalWords.split(" ").length;
             if (actualWords !== 0) {
                 typing_speed = (actualWords / time_taken) * 60;
                 typing_speed = Math.round(typing_speed);
                 score.innerHTML = `Speed(WPM): ${typing_speed}`;
+
                 let lengthCount = textDisplay.innerText.length;
-                let accuracyResult = Math.round((accuracyCount / lengthCount) * 100);
-                totalAccuracy = accuracyResult
+                let accuracyResult = Math.round(
+                    (accuracyCount / lengthCount) * 100
+                );
+                totalAccuracy = accuracyResult;
                 accuracyText.innerHTML = `Accuracy: ${accuracyResult} %`;
+                valueArr[Number(level) - 1].speed = typing_speed;
+                valueArr[Number(level) - 1].accuracy = accuracyResult;
+                console.log(valueArr);
+                localStorage.setItem("resultArr", JSON.stringify(valueArr));
             } else {
                 score.innerHTML = `0`;
             }
         };
-        
+
         //startTyping function
         const startTyping = () => {
             let date = new Date();
             startTime = date.getTime();
             btn.innerHTML = "Done";
             showTimer();
-            
+
             //checking correct & incorrect with the input characters
             typing_ground.addEventListener("input", () => {
                 const arrayQuote = textDisplay.querySelectorAll("span");
@@ -158,8 +200,7 @@ const { speed } = Astro.props;
                         "hover:text-white",
                         "hover:py-1.5",
                         "hover:px-3.5"
-                        );
-                    btn.style.cssText = "background: #BDDAFF;";
+                    );
                     endTypingTest();
                 }
             });
@@ -172,28 +213,37 @@ const { speed } = Astro.props;
             if (typing_ground.length == textDisplay.length) {
                 typing_ground.setAttribute("disabled", "true");
             }
-            
+
             let date = new Date();
             endTime = date.getTime();
             totalTimeTaken = (endTime - startTime) / 1000;
             calculateTypingSpeed(totalTimeTaken);
             typing_ground.value = "";
-            const speed = document.querySelector("#speedValue").dataset.speed;
-            const level = document.querySelector("#speedValue").dataset.level;
-            console.log(level);
 
-            totalAccuracy = accuracyText.innerHTML.split(" ")
-            totalAccuracyCount = Number(totalAccuracy[1])
-            if (typing_speed >= speed && totalAccuracyCount >= 95 ) {
+            totalAccuracy = accuracyText.innerHTML.split(" ");
+            totalAccuracyCount = Number(totalAccuracy[1]);
+            if (typing_speed >= speed && totalAccuracyCount >= accuracy) {
                 btn.innerText = "Next level";
+                const intLevel = Number(level) + Number(1);
+                localStorage.setItem("levelNo", `${intLevel}`);
                 var mydiv = document.getElementById("speedValue");
                 var aTag = document.createElement("a");
-                aTag.setAttribute("href", `/level/${Number(level)+(Number(1))}`);
+                aTag.setAttribute(
+                    "href",
+                    `/level/${Number(level) + Number(1)}`
+                );
+                mydiv.appendChild(aTag);
+                aTag.appendChild(btn);
+            } else if (typing_speed < speed || totalAccuracyCount < accuracy) {
+                btn.innerText = "Retry";
+                var mydiv = document.getElementById("speedValue");
+                var aTag = document.createElement("a");
+                aTag.setAttribute("href", `/level/${Number(level)}`);
                 mydiv.appendChild(aTag);
                 aTag.appendChild(btn);
             }
         };
-        
+
         //cheking the innerText of button
         btn.addEventListener("click", () => {
             switch (btn.innerText.toLowerCase()) {
@@ -205,50 +255,49 @@ const { speed } = Astro.props;
                     typing_ground.setAttribute("disabled", "true");
                     endTypingTest();
                     break;
-                }
-            });
-            
-            // enabling start typing using 'Spacebar'
-            var hasExecuted = false;
-            document.body.onkeyup = function (e) {
-                if (
-                    (e.key === " " || e.code === "Space" || e.keyCode === 32) &&
-                    !hasExecuted
-                    ) {
-                        typing_ground.removeAttribute("disabled");
-                        typing_ground.focus();
-                        startTyping();
-                        hasExecuted = true;
-                    }
-                };
-                
-                //Paragraph fetch
-                window.addEventListener("load", (event) => {
-                    const numberOfSentences = 1; // Specify the number of sentences you want
-                    
-                    const xhr = new XMLHttpRequest();
-                    xhr.open(
-                        "GET",
-                        `http://metaphorpsum.com/sentences/${numberOfSentences}`,
-                        true
-                        );
-                        xhr.onreadystatechange = function () {
-                            if (xhr.readyState === 4 && xhr.status === 200) {
-                                const response = xhr.responseText;
-                                textDisplay.innerHTML = "";
-                                // Taking character from the actual quote To check correct & incorrect words
-                                response.split("").forEach((character) => {
-                                    const characterSpan = document.createElement("span");
-                                    characterSpan.innerText = character;
-                                    characterSpan.style.cssText = `
+            }
+        });
+
+        // enabling start typing using 'Spacebar'
+        var hasExecuted = false;
+        document.body.onkeyup = function (e) {
+            if (
+                (e.key === " " || e.code === "Space" || e.keyCode === 32) &&
+                !hasExecuted
+            ) {
+                typing_ground.removeAttribute("disabled");
+                typing_ground.focus();
+                startTyping();
+                hasExecuted = true;
+            }
+        };
+
+        //Paragraph fetch
+        window.addEventListener("load", (event) => {
+            const numberOfSentences = 1; // Specify the number of sentences you want
+
+            const xhr = new XMLHttpRequest();
+            xhr.open(
+                "GET",
+                `http://metaphorpsum.com/sentences/${numberOfSentences}`,
+                true
+            );
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    const response = xhr.responseText;
+                    textDisplay.innerHTML = "";
+                    // Taking character from the actual quote To check correct & incorrect words
+                    response.split("").forEach((character) => {
+                        const characterSpan = document.createElement("span");
+                        characterSpan.innerText = character;
+                        characterSpan.style.cssText = `
                                     margin: 1px;
                                     `;
-                                    textDisplay.appendChild(characterSpan);
-                                });
-                            }
-                        };
-                        xhr.send();
+                        textDisplay.appendChild(characterSpan);
                     });
-                    
-                    </script>
+                }
+            };
+            xhr.send();
+        });
+    </script>
 </Layout>

@@ -1,27 +1,80 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Card from '@components/Card.astro';
-import levelData from '@assets/js/levelData';
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card.astro";
+import levelData from "@assets/js/levelData";
 ---
+
 <Layout title="about page" description="about description">
-    <h1>About Page!!!</h1>
-    <ul role="list" class="link-card-grid">
-    {
-        levelData.map((item) =>{
-            return(
-                <>
-                    <Card level={item.level} />
-                </>
-            )
-        })
-    }
+    <h1 id="speedAccuracy" data-arraylength={levelData.length}>
+        About Page!!!
+    </h1>
+    <ul role="list" class="link-card-grid mx-4">
+        {
+            levelData.map((item) => {
+                return (
+                    <>
+                        <Card level={item.level} />
+                    </>
+                );
+            })
+        }
     </ul>
 </Layout>
+
 <style>
-    	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+    body {
+        background-image: url("https://i.pinimg.com/736x/8f/68/23/8f682350d2c8a76a92fa71c175bf4be2.jpg");
+        height: 100vh;
+        widows: 100vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 1rem;
+        padding: 0;
+    }
 </style>
+
+<script>
+    const length = document.querySelector("#speedAccuracy").dataset.arraylength;
+    // const resultValue=0
+    const resultValueArr = [];
+    const data = {
+        speed: 0,
+        accuracy: 0,
+    };
+    var valueArr;
+
+    if ("resultArr" in localStorage) {
+        valueArr = JSON.parse(localStorage.getItem("resultArr"));
+    } else {
+        for (let index = 0; index < length; index++) {
+            resultValueArr.push(data);
+        }
+        localStorage.setItem("resultArr", JSON.stringify(resultValueArr));
+        valueArr = JSON.parse(localStorage.getItem("resultArr"));
+    }
+    console.log();
+    if ("levelNo" in localStorage) {
+        const level = Number(localStorage.getItem("levelNo"));
+        const cardList = document.querySelectorAll("li");
+        cardList.forEach((listItem, index) => {
+            const speed = listItem.querySelector("#speed");
+            const accuracy = listItem.querySelector("#accuracy");
+            speed.innerText = `Speed : ${valueArr[index].speed} WPM`;
+            accuracy.innerText = `Accuracy : ${valueArr[index].accuracy}%`;
+            if (index + 1 > level) {
+                listItem.querySelector(".linkClass").style.filter = "blur(2px)";
+                listItem.style.pointerEvents = "none";
+            } else {
+                listItem.querySelector(".lockImage").style.display = "none";
+            }
+        });
+    } else {
+        localStorage.setItem("levelNo", "1");
+    }
+
+    // localStorage.removeItem("levelNo")
+</script>

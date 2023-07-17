@@ -1,5 +1,6 @@
 ---
 const { title="Default Title", description="Default Description" } = Astro.props;
+import.meta.env.SITE;
 ---
 
 <!DOCTYPE html>
@@ -17,6 +18,17 @@ const { title="Default Title", description="Default Description" } = Astro.props
 		<slot />
 	</body>
 </html>
+
+
+<script>
+	var exactLocation =[]
+        const location = window.location.href
+        exactLocation = location.split("/")
+		const level = localStorage.getItem("levelNo")
+		if (Number(exactLocation[4]) > Number(level)) {
+			window.location = `${import.meta.env.SITE}/level/${level}`
+		}
+</script>
 <style is:global>
 	:root {
 		--accent: 124, 58, 237;
