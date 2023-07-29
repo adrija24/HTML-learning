@@ -1,13 +1,10 @@
 body {
-    background-image: url("https://i.pinimg.com/736x/8f/68/23/8f682350d2c8a76a92fa71c175bf4be2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .divContainer{
-    background-color: rgba(139, 139, 139, 0.35);
-  }
-  
-  #textInput{
+  background-image: url("../images/background.jpg");
+  widows: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#textInput{
     resize: none;
   }
   

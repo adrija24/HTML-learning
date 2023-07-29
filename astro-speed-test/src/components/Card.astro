@@ -3,8 +3,8 @@ const { level } = Astro.props;
 import { Icon } from 'astro-iconify'
 ---
 
-<li class="link-card text-2xl flex items-center justify-center">
-	<Icon class="lockImage absolute z-10 h-24 w-24 " name="material-symbols:lock" />
+<li class="link-card text-2xl flex items-center justify-center m-3 my-5 p-4">
+	<Icon class="lockImage absolute z-10 h-24 w-24" name="material-symbols:lock" />
 	<a href={`/level/${level}`} class="linkClass w-full flex items-center justify-center flex-col text-left">
 		<h2 class="text-4xl font-bold">
 			Level {level}
