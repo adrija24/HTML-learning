@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import "@assets/styles/level.css";
 import levelData from "@assets/js/levelData";
 import { Icon } from "astro-iconify";
+import { paragraph } from "txtgen";
 export function getStaticPaths() {
   return levelData.map(({ level, speed, finalAccuracy }) => {
     return {
@@ -12,7 +13,12 @@ export function getStaticPaths() {
   });
 }
 const { level } = Astro.params;
-const { speed, finalAccuracy, length = levelData.length } = Astro.props;
+const {
+  speed,
+  finalAccuracy,
+  length = levelData.length,
+  response = paragraph(Math.round(Math.random() * (8 - 5) + 5)),
+} = Astro.props;
 ---
 
 <Layout title={`TypingHub | Level ${level}`} description="TypingHub Level Page">
@@ -26,13 +32,18 @@ const { speed, finalAccuracy, length = levelData.length } = Astro.props;
     data-level={level}
     data-accuracy={finalAccuracy}
     data-length={length}
+    data-response={response}
   >
     <h4
       class="mt-6 m-0 sm:m-0 bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-yellow-500 text-5xl font-extrabold leading-loose underline decoration-double underline-offset-8"
     >
       Level {level}
     </h4>
-    <h3 class="text-slate-300">Click <span class="font-bold">Start</span> or hit <span class="font-bold">Space</span> to start typing</h3>
+    <h3 class="text-slate-300">
+      Click <span class="font-bold">Start</span> or hit <span class="font-bold"
+        >Space</span
+      > to start typing
+    </h3>
     <h2
       class="text-white text-xl px-4 text-center leading-loose underline decoration-solid underline-offset-8"
     >
@@ -95,9 +106,8 @@ const { speed, finalAccuracy, length = levelData.length } = Astro.props;
   const textDisplay = document.getElementById("textDisplay");
   const accuracyText = document.querySelector("#accuracyDiv");
   const showTimeContainer = document.querySelector("#showTimeContainer");
-  const Showsentence = document.querySelector("#sentence");
 
-  let startTime, endTime, totalTimeTaken, button, textDisplayLength;
+  let startTime, endTime, totalTimeTaken;
   let accuracyCount = 0;
   let typing_speed = 0;
   let totalAccuracy = 0;
@@ -107,7 +117,46 @@ const { speed, finalAccuracy, length = levelData.length } = Astro.props;
   const accuracy = document.querySelector("#speedValue").dataset.accuracy;
   const level = document.querySelector("#speedValue").dataset.level;
   const length = document.querySelector("#speedValue").dataset.length;
+  const response = document.querySelector("#speedValue").dataset.response;
 
+  textDisplay.innerHTML = "";
+  // Taking character from the actual quote To check correct & incorrect words
+  response.split("").forEach((character) => {
+    const characterSpan = document.createElement("span");
+    characterSpan.innerText = character;
+    characterSpan.style.cssText = `
+                                    margin: 1px;
+                                    `;
+    textDisplay.appendChild(characterSpan);
+  });
+
+  function redirect() {
+    window.location = `${import.meta.env.SITE}/level/${levelNo}`;
+  }
+  var exactLocation = [];
+  const location = window.location.href;
+  exactLocation = location.split("/");
+  const levelNo = localStorage.getItem("levelNo");
+  if (Number(exactLocation[4]) > Number(levelNo)) {
+    btn.disabled = true;
+
+    var hasExecuted = false;
+    document.body.onkeyup = function (e) {
+      if (
+        (e.key === " " || e.code === "Space" || e.keyCode === 32) &&
+        !hasExecuted
+      ) {
+        // typing_ground.removeAttribute("disabled");
+        document.getElementById("typing_ground").disabled = true;
+        hasExecuted = true;
+      }
+    };
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    setInterval(() => {
+      redirect();
+    }, 5000);
+  }
   const resultValueArr = [];
   const data = {
     speed: 0,
@@ -270,32 +319,4 @@ const { speed, finalAccuracy, length = levelData.length } = Astro.props;
       hasExecuted = true;
     }
   };
-
-  //Paragraph fetch
-  window.addEventListener("load", (event) => {
-    const numberOfSentences = Math.round(Math.random() * (8 - 5) + 5); // Specify the number of sentences you want
-
-    const xhr = new XMLHttpRequest();
-    xhr.open(
-      "GET",
-      `http://metaphorpsum.com/sentences/${numberOfSentences}`,
-      true
-    );
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const response = xhr.responseText;
-        textDisplay.innerHTML = "";
-        // Taking character from the actual quote To check correct & incorrect words
-        response.split("").forEach((character) => {
-          const characterSpan = document.createElement("span");
-          characterSpan.innerText = character;
-          characterSpan.style.cssText = `
-                                    margin: 1px;
-                                    `;
-          textDisplay.appendChild(characterSpan);
-        });
-      }
-    };
-    xhr.send();
-  });
 </script>
