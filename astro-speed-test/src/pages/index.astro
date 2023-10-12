@@ -1,0 +1,98 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card.astro";
+import levelData from "@assets/js/levelData";
+---
+
+<Layout title="TypingHub | Homepage" description="TypingHub Home Page">
+  <h1
+    id="speedAccuracy"
+    class="mb-3 text-5xl sm:text-6xl font-extrabold leading-loose sm:leading-loose flex items-center justify-center bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-yellow-500"
+    data-arraylength={levelData.length}
+  >
+    Typing Hub
+  </h1>
+  <ul role="list" class="link-card-grid mx-4">
+    {
+      levelData.map((item) => {
+        return (
+          <>
+            <Card level={item.level} />
+          </>
+        );
+      })
+    }
+  </ul>
+</Layout>
+
+<style>
+  body {
+    background-image: url("../assets/images/background.jpg");
+    widows: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+  @media screen and (max-width: 565px) {
+    .link-card-grid {
+      grid-template-columns: repeat(auto-fit, minmax(22ch, 1fr));
+    }
+  }
+</style>
+
+<script>
+  const length = document.querySelector("#speedAccuracy").dataset.arraylength;
+  const resultValueArr = [];
+  const data = {
+    speed: 0,
+    accuracy: 0,
+  };
+  var valueArr;
+
+  if ("resultArr" in localStorage) {
+    valueArr = JSON.parse(localStorage.getItem("resultArr"));
+  } else {
+    for (let index = 0; index < length; index++) {
+      resultValueArr.push(data);
+    }
+    localStorage.setItem("resultArr", JSON.stringify(resultValueArr));
+    valueArr = JSON.parse(localStorage.getItem("resultArr"));
+  }
+  const cardList = document.querySelectorAll("li");
+  if ("levelNo" in localStorage) {
+    const level = Number(localStorage.getItem("levelNo"));
+    cardList.forEach((listItem, index) => {
+      const speed = listItem.querySelector("#speed");
+      const accuracy = listItem.querySelector("#accuracy");
+      speed.innerText = `𝐒𝐩𝐞𝐞𝐝: ${valueArr[index].speed} WPM`;
+      accuracy.innerText = `𝐀𝐜𝐜𝐮𝐫𝐚𝐜𝐲: ${valueArr[index].accuracy}%`;
+      if (index + 1 > level) {
+        listItem.querySelector(".linkClass").style.filter = "blur(2px)";
+        listItem.style.pointerEvents = "none";
+      } else {
+        listItem.querySelector(".lockImage").style.display = "none";
+      }
+    });
+  } else {
+    localStorage.setItem("levelNo", "1");
+    cardList.forEach((listItem, index) => {
+      const speed = listItem.querySelector("#speed");
+      const accuracy = listItem.querySelector("#accuracy");
+      speed.innerText = `𝐒𝐩𝐞𝐞𝐝: ${valueArr[index].speed} WPM`;
+      accuracy.innerText = `𝐀𝐜𝐜𝐮𝐫𝐚𝐜𝐲: ${valueArr[index].accuracy}%`;
+      if (index !== 0) {
+        listItem.querySelector(".linkClass").style.filter = "blur(2px)";
+        listItem.style.pointerEvents = "none";
+      } else {
+        listItem.querySelector(".lockImage").style.display = "none";
+      }
+    });
+  }
+
+  //   localStorage.removeItem("resultArr");
+</script>

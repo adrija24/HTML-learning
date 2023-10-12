@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- tailwind -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="flex flex-col justify-center items-center min-h-screen	">
+        <div class="w-6/12 sm:w-4/12 px-4 flex justify-center">
+          <img src="assets/iamge/Durga.jpg" alt="..." class="shadow rounded-full max-w-full w-56 align-middle border-none" />
+        </div>
+        <div class="wish pt-6">
+            <p id = "wish"></p>
+        </div>
+      </div>
+</body>
+
+<script>
+    var username = localStorage.getItem("name");
+    var userage = localStorage.getItem("age");
+
+
+    if (userage <= 20){
+        document.getElementById("wish").innerHTML = "শুভ বিজয়ার আন্তরিক প্রীতি ও শুভেচ্ছা " + username;
+    }
+    else{
+        document.getElementById("wish").innerHTML = "শুভ বিজয়ার আমার প্রণাম " + username;
+    }
+</script>
+
+</html>

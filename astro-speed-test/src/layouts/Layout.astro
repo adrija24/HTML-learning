@@ -1,0 +1,33 @@
+---
+const { title = "Default Title", description = "Default Description" } =
+  Astro.props;
+import "@assets/styles/layout.css";
+import.meta.env.SITE;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <slot />
+    <div
+      class="popup flex justify-items align-items z-50 absolute"
+      onload="
+      myFunction()
+      "
+    >
+      
+      <p class="popuptext text-black text-xl" id="myPopup"><span class="text-rose-500 font-bold text-2xl">Redirection Alert!!!</span><br>This level is locked. You will be redirected in <span id="redirectTime"></span> second to your unlocked level.</p
+      >
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,23 @@
+body {
+  background-image: url("../images/background.jpg");
+  widows: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#textInput{
+    resize: none;
+  }
+  
+  .correct{
+    background-color: rgb(90, 255, 90);
+    color: black;
+    border-radius: 2px;
+  }
+  .incorrect{
+    background-color: rgb(255, 88, 88);
+    color: black;
+    border-radius: 2px;
+  }
+  
+  
+  

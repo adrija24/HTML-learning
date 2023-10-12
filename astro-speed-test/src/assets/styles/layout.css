@@ -1,0 +1,96 @@
+:root {
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    #da62c4 30%,
+    white 60%
+  );
+}
+
+#redirectTime::before {
+  content: "";
+  color:red;
+  font: bold;
+  animation: redirectTime 5.5s linear;
+}
+@keyframes redirectTime {
+  0% {
+    content: "5";
+  }
+  20% {
+    content: "4";
+  }
+  40% {
+    content: "3";
+  }
+  60% {
+    content: "2";
+  }
+  80% {
+    content: "1";
+  }
+  100% {
+    content: "0";
+  }
+}
+
+/* Popup container */
+.popup {
+  top: 50%;
+  left: calc((100vw - 350px) / 2);
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 350px;
+  background-color: #feffca;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 8px;
+  bottom: 125%;
+  left: 50%;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #feffca transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 450px) {
+  .popup .popuptext {
+    width: 250px;
+  }
+}
