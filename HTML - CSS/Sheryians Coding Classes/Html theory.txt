@@ -1,0 +1,81 @@
+1) Boilerplate code - It is the code that we should write in html. We can not go forward without writing this code. If we don't write the code then we are technically
+                   wrong. May the we can get the correct answer but we are technically wrong if we don't write the boilerplate code. there are many wrong way but the 
+                   right way to writethe html code is to start writing with the boilerplate code.
+                   We can write this code using - 'html:5' or '!'
+
+2) <!DOCTYPE html>      =>[This line indicates that this is an 'html 5' document & this is an html document]
+   <html lang="en">     =>[It is a root element or we can also call it as wrapper. It is a wrapper which wraps the head and body part]
+   <head>               =>[It includes the meta information and the title of the html document]
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+   </head>
+   <body>     =>[Whatever the content we want to show on the website those will be written in the body part]
+    
+   </body>
+   </html>
+
+3) Emmet suggestion - When we write something in VS code then it gives some suggestions, those are called emmet suggestion or emmet abbreviation or auto
+   completion suggestion. When we click on the suggestion or tap 'enter' or tap 'tab' it will complete automatically.
+
+4) <h> tag (head tag) => It defines the headings. <h1> tag is used for biggest heading and <h6> tag is used for smallest heading. There is <h1> to <h6> head tags. If
+   we write any other <h> tag then it will not through any error but also it will not give the expected output.
+
+5) <p> tag (paragraph tag) => It is used to write paragraph. It takes some padding and strats from a new line automatically.
+
+6) <b> tag => to bold words
+
+7) <i> tag => to create italic words
+
+8) <sup> tag => It is used to write superscipt.
+
+9) <sub> tag => It is used to write subscipt.
+
+10) <br> tag => It is used to give line break.
+
+11) <hr> tag => hr is horizontal row.
+
+12) <ol> tag (ordered list) => We can use it to create a list of related items in a specific order. We can give a type and also mention the starting number.  
+    <ol type="A" start="3">
+        <li>apple</li>
+        <li>orange</li>
+        <li>guava</li>
+    </ol>
+
+13) <ul> tag (unordered list) => We can use it to create a list of items that has to specific order. We can give a type.
+    <ul type="square">
+        <li>apple</li>
+        <li>orange</li>
+        <li>guava</li>
+    </ul>
+
+14) <dl> tag (description list) => We can use it to add description of each of the item in the list.
+    <dl>
+        <dt>coffee</dt>
+        <dd>It is hot</dd>      
+         <dt>cold drinks</dt>
+        <dd>It is cold</dd>
+    </dl>
+
+15) <a> tag (anchor tag) => We can write anything between the <a> tag and after clicking on the sentence or word we can go to the destination using the 'href'. we can 
+also set the target to select that where the link will open.
+    <a target = "_blank" href="https://www.google.com">Google</a>
+
+16) <img> tag (immage tag) => Here we have to write the 'source' and the 'alt'. The source defines the source address of the image and alt defines the alternative text
+if the image can not load. If we can see the image then we cannot see the alternative text but if we can see the alternative text then we cannot see the image.
+   <img src="photo.jpg" alt="hills">
+
+17) <form> tag => form tag is used to take user inputs. In the label we can set the 'for' with some value and we should write the same value for 'id' of the input
+filed for the same thing. So that when we will click on the label in the website then the input field will be active automatically.
+   Input types can be => i)text, ii)email, iii) password, iv)checkbox, v)radio, vi)file, vii)range
+
+18) <div> tag => div tag has mainly two purposes. One is when we want to create a rectangle and the other purpose is when we want to keep mone than one things in the
+rectangle. In simple words 'div' is used to keep multiple things together. 
+
+19) id => id helps to select elements individually. We cannot repeat any id name. We can add css by using id name to add css for the particular element.
+
+20) class => We can repeat class name. If we want to add a css for multiple elements then we can give same class name to those elements.
+
+"ctrl + d" to select multiple things 
+"alt + tab" to jump from one window to anothers
+We can write a certain number of words whatever we want to using "lorem'no of words'"
